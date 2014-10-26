@@ -1,0 +1,13 @@
+<html>
+<span>Submit a comment:</span>
+    <form action="http://localhost:8000/api/" method="post">
+        <label for="text">Comment</label>
+        <input type="text" name="text" id="text">
+
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+
+        <input type="hidden" name="url" id="url" value="localhost:8000/api/" />
+        <button type="submit">Submit</button>
+    </form>
+</html>
