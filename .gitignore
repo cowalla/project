@@ -3,3 +3,6 @@ bin
 lib
 include
 graffiti/db.sqlite3
+staticfiles
+*.pyc
+venv

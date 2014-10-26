@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.template.response import TemplateResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from comments.models import Comment
+from graffiti.comments.models import Comment
 
 
 def graffiti_index(request):
