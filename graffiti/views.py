@@ -17,7 +17,7 @@ def graffiti_index(request):
 
 @csrf_exempt
 def api(request):
-    if not request.user.is_superuser():
+    if not request.user.is_superuser:
         return http.Http404()
 
     url = request.GET.get('url')
