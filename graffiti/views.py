@@ -41,8 +41,6 @@ def api(request):
     else:
         comments = []
 
-    return TemplateResponse(
-        request,
-        'postform.html',
-        {'comments': comments}
+    return http.HttpResponse(
+        json.dumps(comments)
     )
