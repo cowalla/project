@@ -37,7 +37,13 @@ def api(request):
         url = data['url']
 
     if url:
-        comments = Comment.objects.filter(url=url)
+        comments = [
+            {
+                'text': comment.text,
+                'username': comment.user.username
+            }
+            for comment in Comment.objects.filter(url=url)
+        ]
     else:
         comments = []
 
