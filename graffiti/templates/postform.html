@@ -1,6 +1,12 @@
 <html>
+<div class="comments-box">
+    {% for comment in comments %}
+    <div class="comment">{{comment.username}}: {{comment.text}}</div>
+    {% endfor %}
+</div>
+
 <span>Submit a comment:</span>
-    <form action="http://localhost:8000/api/" method="post">
+    <form action="https://powerful-woodland-8813.herokuapp.com/api/" method="post">
         <label for="text">Comment</label>
         <input type="text" name="text" id="text">
 

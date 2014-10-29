@@ -37,16 +37,12 @@ def api(request):
         url = data['url']
 
     if url:
-        comments = [
-            {
-                'text': c.text,
-                'user': c.user.username,
-            } for c in Comment.objects.filter(url=url)
-        ]
-        print comments
+        comments = Comment.objects.filter(url=url)
     else:
         comments = []
 
-    return http.HttpResponse(
-        json.dumps(comments)
+    return TemplateResponse(
+        request,
+        'postform.html',
+        {'comments': comments}
     )
