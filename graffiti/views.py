@@ -17,24 +17,21 @@ def graffiti_index(request):
 
 @csrf_exempt
 def api(request):
-    if not request.user.is_superuser:
+    if not request.user and request.user.is_superuser:
         return http.HttpResponse(
             'YOU DONE FUCKED UP'
         )
-
+    user, _created = User.objects.get_or_create(username=request.user.username)
     url = request.GET.get('url')
 
     if request.POST:
         data = request.POST
-
-        name = data['username']
-        user, _created = User.objects.get_or_create(username=name)
+        url = data['url']
         Comment.objects.create(
             user=user,
             text=data['text'],
-            url=data['url']
+            url=url
         )
-        url = data['url']
 
     if url:
         comments = [
